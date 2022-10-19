@@ -74,6 +74,8 @@ object GsonUtil {
         .registerTypeAdapter(BigInteger::class.java, BigIntegerTypeAdapter())
         // Collection
         .registerTypeAdapterFactory(CollectionTypeAdapterFactory(ConstructorConstructor(mapOf(), true, listOf())))
+        // map
+        .registerTypeAdapterFactory(MapTypeAdapterFactory(ConstructorConstructor(mapOf(),true, listOf()),false))
         .setExclusionStrategies(NoGsonExclusionStrategy())
         .create()
 }
