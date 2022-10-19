@@ -1,6 +1,7 @@
 package me.twc.utils
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -26,4 +27,14 @@ fun RecyclerView.smoothScrollClickedItemToTop(position: Int) {
         val top = getChildAt(position - firstVisibleItemPosition).top
         smoothScrollBy(0, top)
     }
+}
+
+fun RecyclerView.smoothScrollToItem(position: Int, snap: Int = LinearSmoothScroller.SNAP_TO_START) = safeDo {
+    val lm = layoutManager ?: return@safeDo
+    if (lm !is LinearLayoutManager) return@safeDo
+    val scroller = object : LinearSmoothScroller(context) {
+        override fun getVerticalSnapPreference(): Int = snap
+    }
+    scroller.targetPosition = position
+    lm.startSmoothScroll(scroller)
 }
