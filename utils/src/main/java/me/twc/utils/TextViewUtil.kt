@@ -2,6 +2,7 @@ package me.twc.utils
 
 import android.text.InputFilter
 import android.text.Spanned
+import android.widget.EditText
 import android.widget.TextView
 import com.blankj.utilcode.util.ClipboardUtils
 
@@ -32,6 +33,11 @@ fun TextView.clickCopy() {
 fun TextView.copyText() {
     ClipboardUtils.copyText(this.text ?: "")
     showCenterToast("复制成功")
+}
+
+fun EditText.setTextCursorEnd(text: CharSequence) {
+    setText(text)
+    safeDo { setSelection(text.length) }
 }
 
 //<editor-fold desc="InputFilter">
