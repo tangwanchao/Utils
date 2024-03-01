@@ -4,11 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
+    namespace = "me.twc.utils.demo"
+
     defaultConfig {
         applicationId "me.twc.utils.demo"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
