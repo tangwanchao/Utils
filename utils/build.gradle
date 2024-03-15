@@ -20,6 +20,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'consumer-rules.pro'
         }
     }
     compileOptions {
@@ -69,7 +70,7 @@ dependencies {
 
     // ------ Google Start ------
     api 'com.google.code.gson:gson:2.10.1'
-    api 'com.google.android.material:material:1.11.1'
+    api 'com.google.android.material:material:1.11.0'
     // ------ Google End ------
 
     api 'com.blankj:utilcodex:1.31.1'                               // UtilsCodeX
